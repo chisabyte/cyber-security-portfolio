@@ -4,8 +4,14 @@ import { projects } from '../data/projects';
 import { FaGithub, FaFilePdf, FaStar } from 'react-icons/fa';
 
 const Projects = () => {
+  // Sort projects: featured first, then by ID
+  const sortedProjects = [...projects].sort((a, b) => {
+    if (a.featured && !b.featured) return -1;
+    if (!a.featured && b.featured) return 1;
+    return a.id - b.id;
+  });
+
   const featuredProjects = projects.filter(p => p.featured);
-  const regularProjects = projects.filter(p => !p.featured);
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-cyber-dark transition-colors duration-300">
@@ -16,25 +22,18 @@ const Projects = () => {
           penetration testing, and security operations roles.
         </p>
 
-        {/* Featured Projects */}
+        {/* Featured Projects Header */}
         {featuredProjects.length > 0 && (
-          <div className="mb-12">
-            <div className="flex items-center gap-2 mb-6">
-              <FaStar className="text-cyber-blue text-xl" />
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Featured Projects</h3>
-            </div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {featuredProjects.map((project) => (
-                <ProjectCard key={project.id} project={project} featured={true} />
-              ))}
-            </div>
+          <div className="flex items-center gap-2 mb-6">
+            <FaStar className="text-cyber-blue text-xl" />
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Featured Projects</h3>
           </div>
         )}
 
-        {/* All Projects */}
-        <div className="grid md:grid-cols-2 gap-8">
-          {regularProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} featured={false} />
+        {/* All Projects in Unified Grid - Featured projects appear first with badges */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedProjects.map((project) => (
+            <ProjectCard key={project.id} project={project} featured={project.featured} />
           ))}
         </div>
       </div>
