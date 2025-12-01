@@ -49,7 +49,7 @@ const Contact = () => {
         PUBLIC_KEY === 'your_public_key') {
       setSubmitStatus({
         type: 'error',
-        message: 'EmailJS is not configured. Please check your .env file and restart the dev server. Make sure VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, and VITE_EMAILJS_PUBLIC_KEY are set.'
+        message: 'EmailJS is not configured. Please check your configuration.'
       });
       setIsSubmitting(false);
       return;

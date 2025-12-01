@@ -9,11 +9,13 @@ export const CONTACT_EMAIL = import.meta.env.VITE_CONTACT_EMAIL || 'roscoechisas
 
 /**
  * EmailJS configuration
+ * Note: These keys are public and safe to include in client-side code
+ * EmailJS public keys are designed to be visible in the browser
  */
 export const EMAILJS_CONFIG = {
-  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID,
-  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+  SERVICE_ID: import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_b51yg9b',
+  TEMPLATE_ID: import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_4mld5lx',
+  PUBLIC_KEY: import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'kVOFIc8LamS88ga7Q',
 };
 
 /**
