@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *:focus-visible {
+    outline: 2px solid #0ea5e9;
+    outline-offset: 2px;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white dark:bg-cyber-dark text-gray-900 dark:text-gray-100 transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white;
+  }
+  
+  .btn-primary {
+    @apply bg-cyber-blue hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 inline-block;
+  }
+  
+  .btn-secondary {
+    @apply bg-cyber-green hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 inline-block;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-cyber-gray rounded-lg shadow-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-200;
+  }
+
+  /* Animated Gradient Border Buttons */
+  .btn-gradient-border-blue,
+  .btn-gradient-border-green,
+  .btn-gradient-border-rainbow {
+    @apply font-semibold py-3 px-6 rounded-lg transition-all duration-300 inline-flex items-center gap-2 relative;
+    border: none;
+    position: relative;
+    z-index: 0;
+  }
+
+  /* Orange/Red Gradient Border Button */
+  .btn-gradient-border-blue {
+    @apply text-white;
+    background: #f97316;
+  }
+
+  .btn-gradient-border-blue:hover {
+    background: #ea580c;
+  }
+
+  .btn-gradient-border-blue::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 0.5rem;
+    background: linear-gradient(
+      90deg,
+      #f97316,
+      #fb923c,
+      #f59e0b,
+      #ef4444,
+      #dc2626,
+      #f97316
+    );
+    background-size: 300% 100%;
+    animation: rotate-gradient-blue 3s linear infinite;
+    z-index: -1;
+  }
+
+  .btn-gradient-border-blue::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: calc(0.5rem - 3px);
+    background: inherit;
+    z-index: -1;
+  }
+
+  .btn-gradient-border-blue:hover::before {
+    animation: rotate-gradient-blue 1.5s linear infinite;
+  }
+
+  .btn-gradient-border-blue {
+    box-shadow: 0 0 20px rgba(249, 115, 22, 0.4);
+  }
+
+  .btn-gradient-border-blue:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 0 30px rgba(249, 115, 22, 0.6),
+      0 0 50px rgba(239, 68, 68, 0.4);
+  }
+
+  /* Green/Emerald Gradient Border Button */
+  .btn-gradient-border-green {
+    @apply text-white;
+    background: #10b981;
+  }
+
+  .btn-gradient-border-green:hover {
+    background: #059669;
+  }
+
+  .btn-gradient-border-green::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 0.5rem;
+    background: linear-gradient(
+      90deg,
+      #10b981,
+      #34d399,
+      #059669,
+      #047857,
+      #10b981
+    );
+    background-size: 300% 100%;
+    animation: rotate-gradient-green 3s linear infinite;
+    z-index: -1;
+  }
+
+  .btn-gradient-border-green::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: calc(0.5rem - 3px);
+    background: inherit;
+    z-index: -1;
+  }
+
+  .btn-gradient-border-green:hover::before {
+    animation: rotate-gradient-green 1.5s linear infinite;
+  }
+
+  .btn-gradient-border-green {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+  }
+
+  .btn-gradient-border-green:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 0 30px rgba(16, 185, 129, 0.6),
+      0 0 50px rgba(16, 185, 129, 0.4);
+  }
+
+  /* Rainbow Gradient Border Button */
+  .btn-gradient-border-rainbow {
+    @apply text-cyber-dark;
+    background: white;
+  }
+
+  .btn-gradient-border-rainbow:hover {
+    background: #f3f4f6;
+  }
+
+  .btn-gradient-border-rainbow::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 0.5rem;
+    background: linear-gradient(
+      90deg,
+      #ef4444,
+      #f59e0b,
+      #10b981,
+      #06b6d4,
+      #3b82f6,
+      #8b5cf6,
+      #ef4444
+    );
+    background-size: 400% 100%;
+    animation: rotate-gradient-rainbow 4s linear infinite;
+    z-index: -1;
+  }
+
+  .btn-gradient-border-rainbow::after {
+    content: '';
+    position: absolute;
+    inset: 3px;
+    border-radius: calc(0.5rem - 3px);
+    background: inherit;
+    z-index: -1;
+  }
+
+  .btn-gradient-border-rainbow:hover::before {
+    animation: rotate-gradient-rainbow 2s linear infinite;
+  }
+
+  .btn-gradient-border-rainbow {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  }
+
+  .btn-gradient-border-rainbow:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 0 30px rgba(139, 92, 246, 0.5),
+      0 0 50px rgba(59, 130, 246, 0.3);
+  }
+
+}
+
+/* Animated Gradient Border Rotations */
+@keyframes rotate-gradient-blue {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotate-gradient-green {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotate-gradient-rainbow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animation delays */
+.animation-delay-300 {
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+.animation-delay-700 {
+  animation-delay: 0.7s;
+  animation-fill-mode: both;
+}
+
+.animation-delay-900 {
+  animation-delay: 0.9s;
+  animation-fill-mode: both;
+}
+

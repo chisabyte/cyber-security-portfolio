@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /Resume.pdf
+Disallow: /resume.pdf
+Disallow: /CV.pdf
+Disallow: /cv.pdf
+
+# Allow all other pages
+Allow: /
+
+
